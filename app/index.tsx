@@ -1,8 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { Link } from 'expo-router';
 
-export default function App() {
+export default function HomeScreen() {
   const [likes, setLikes] = useState(0);
 
   return (
@@ -27,33 +28,22 @@ export default function App() {
         <Text style={styles.buttonText}>Reset</Text>
       </Pressable>
 
+      <Link href="/events" asChild>
+        <Pressable style={StyleSheet.flatten([styles.button, styles.eventsButton])}>
+          <Text style={styles.buttonText}>Events</Text>
+        </Pressable>
+      </Link>
+
       <StatusBar style="auto" />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 16,
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    marginBottom: 8,
-  },
-  name: {
-    fontSize: 24,
-    color: '#555',
-    marginBottom: 24,
-  },
-  likes: {
-    fontSize: 22,
-    marginBottom: 16,
-  },
+  container: { flex: 1, backgroundColor: '#fff', alignItems: 'center', justifyContent: 'center', padding: 16 },
+  title: { fontSize: 32, fontWeight: 'bold', marginBottom: 8 },
+  name: { fontSize: 24, color: '#555', marginBottom: 24 },
+  likes: { fontSize: 22, marginBottom: 16 },
   button: {
     minHeight: 44,
     minWidth: 120,
@@ -64,18 +54,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginBottom: 12,
   },
-  buttonPressed: {
-    opacity: 0.7,
-  },
-  resetButton: {
-    backgroundColor: '#6b7280',
-  },
-  buttonDisabled: {
-    opacity: 0.4,
-  },
-  buttonText: {
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: '600',
-  },
+  buttonPressed: { opacity: 0.7 },
+  resetButton: { backgroundColor: '#6b7280' },
+  eventsButton: { backgroundColor: '#16a34a' },
+  buttonDisabled: { opacity: 0.4 },
+  buttonText: { color: '#fff', fontSize: 18, fontWeight: '600' },
 });
+

@@ -3,6 +3,7 @@
     "name": "iwamad-mobile",
     "slug": "iwamad-mobile",
     "version": "1.0.0",
+    "scheme": "iwamad-mobile",
     "experiments": {
       "baseUrl": "/iwamad-mobile"
     },
@@ -22,10 +23,13 @@
       "predictiveBackGestureEnabled": false
     },
     "web": {
+      "bundler": "metro",
+      "output": "single",
       "favicon": "./assets/favicon.png"
     },
     "plugins": [
-      "expo-status-bar"
+      "expo-status-bar",
+      "expo-router"
     ]
   }
 }
